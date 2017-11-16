@@ -11,7 +11,7 @@ router.get('/totals', function(req, res, next) {
   });
 });
 
-router.post('/totals', function(req, res, next) {
+router.post('/addGoal', function(req, res, next) {
 	var total = new Total(req.body);
 	total.save(function(err, total){
 		if(err) {return next(err); }
