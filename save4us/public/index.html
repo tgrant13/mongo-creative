@@ -30,7 +30,7 @@
 						<h2>{{goal.title}}</h2>
 					</div>
 					<div class="col-lg-6 goalColProgress">
-						<div class="ldBar" style="width: 100%; height: 50px" data-value=".5"></div> 
+						<div class="ldBar" style="width: 100%; height: 50px" data-value="{{percentage}}"></div> 
 					</div>
 					<div class="col goalCol">
 						<h3>${{goal.balance}}/{{goal.total}}</h3>
@@ -44,7 +44,9 @@
 					</div>
 				</div>
 			</div>
-			
+			<div id="ngProgress-container">
+				<div id="ngProgress"></div>
+			</div>
 			
 		</div>
 	</div>
