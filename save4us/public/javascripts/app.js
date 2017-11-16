@@ -23,4 +23,11 @@ angular.module('Save', [])
 		});
 	};
 	$scope.getAll();
+
+	$scope.delete = function(total) {
+		$http.delete('/totals/' + total._id).success(function(data){
+			console.log("delete worked");
+		});
+		$scope.getAll();
+	};
 }]);

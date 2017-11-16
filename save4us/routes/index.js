@@ -19,4 +19,20 @@ router.post('/addGoal', function(req, res, next) {
 	});
 });
 
+router.param('total', function(req, res, next, id) {
+	var query = Total.findById(id);
+	query.exec(function (err, total){
+		if (err) { return next(err); }
+		if (!total) { return next(new Error("can't find total")); }
+		req.total = total;
+		return next();
+	});
+});
+
+router.delete('/totals/:total', function(req, res) {
+	console.log("in Delete");
+	req.total.remove();
+	res.sendStatus(200);
+});
+
 module.exports = router;
