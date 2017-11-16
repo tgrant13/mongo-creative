@@ -1,8 +1,25 @@
 body {
-  padding: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+.goals{
+	margin-top: 30px;
+}
+
+.goalColForm{
+ 	width: 100px !important;
+}
+
+.goalCol{
+ 	width: 100px !important;
+}
+
+.goalColForm{
+	width: 100px !important;
 }
