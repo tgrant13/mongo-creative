@@ -26,16 +26,16 @@
 		<div class="goals" ng-repeat="goal in goals">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-3 goalCol">
-						{{goal.title}}
+					<div class="col goalCol">
+						<h2>{{goal.title}}</h2>
 					</div>
-					<div class="col-lg-3 goalColProgress">
-						<div class="ldBar" data-value="50"></div> 
+					<div class="col-lg-6 goalColProgress">
+						<div class="ldBar" style="width: 100%; height: 50px" data-value=".5"></div> 
 					</div>
-					<div class="col-lg-3 goalCol">
-						{{goal.total}}
+					<div class="col goalCol">
+						<h3>${{goal.balance}}/{{goal.total}}</h3>
 					</div>
-					<div class="col-lg-3 goalColForm">
+					<div class="col goalColForm">
 						<form  class="form-horizontal" ng-submit="updateGoal()">
 							<input type="number" ng-model="additionalFunds" placeholder="add">
 							<button>Add</button>
