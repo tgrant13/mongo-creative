@@ -17,4 +17,10 @@ angular.module('Save', [])
 
 	}
 
+	$scope.getAll = function() {
+		return $http.get('/totals').success(function(data){
+			angular.copy(data, $scope.goals);
+		});
+	};
+	$scope.getAll();
 }]);
