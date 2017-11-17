@@ -1,26 +1,31 @@
 angular.module('Save', [])
 .controller('mainCtrl', ['$scope', '$http', function($scope, $http){
 	$scope.goals = [];
-	$scope.goals.push({title: "car", total: "1000", balance:"5"});
 
 	$scope.addGoal = function() {
-		var newGoal = {title:$scope.title, total:$scope.total, balance:$scope.balance, add: 0};
+		var per = ($scope.balance / $scope.total) * 100
+		var x = Math.round((per * 100) / 100)
+		var newGoal = {title:$scope.title, total:$scope.total, balance:$scope.balance, percentage:x, add: 0};
 		$scope.title = "";
 		$scope.total = "";
 		$scope.balance = "";
+
 
 		$http.post("/addGoal", newGoal).success(function(data){
 			$scope.goals.push(data);
 		});
 	};
 
-	$scope.addFunds = function(total) {
-		console.log(total);
-		return $http.put('/totals/' + total._id + '/updateBalance', total)
+	$scope.addFunds = function(goal) {
+		console.log(goal);
+		return $http.put('/totals/' + goal._id + '/updateBalance', goal)
 		.success(function(data){
 			console.log("addFunds worked");
 			console.log(data.balance);
-			total.balance = data.balance;
+			goal.balance = data.balance;
+			per = (goal.balance / goal.total) * 100
+			perAdj = Math.round((per * 100) / 100)
+			goal.percentage = perAdj
 		});
 		$scope.getAll();
 	};
