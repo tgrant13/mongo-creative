@@ -47,10 +47,12 @@
 						<h2>${{goal.balance}} / ${{goal.total}}</h2>
 					</div>
 					<div class="col goalColForm">
-						<form  class="form-horizontal">
+						<form>
 							<input class="form-control" type="number" ng-model="goal.funds" placeholder="add">
-							<button class="btn btn-secondary" ng-click="delete(goal)">Remove</button>
-							<button class="btn btn-primary" ng-click="updateBalance(goal)">Add</button>
+							<div class="form-group">
+								<button class="btn btn-secondary" ng-click="delete(goal)">Remove</button>
+								<button class="btn btn-primary" ng-click="updateBalance(goal)">Add</button>
+							</div>
 							
 						</form>
 					</div>
