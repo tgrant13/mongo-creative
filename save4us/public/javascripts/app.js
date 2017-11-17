@@ -1,12 +1,11 @@
 angular.module('Save', [])
 .controller('mainCtrl', ['$scope', '$http', function($scope, $http){
 	$scope.goals = [];
-	$scope.goals.push({title: "car", total: "1000", balance:"5", percentage: '100%', color: "green"});
 	$scope.addGoal = function() {
 		var per = ($scope.balance / $scope.total) * 100
 		var x = Math.round((per * 100) / 100)
 		var p = x.toString() + '%'
-		var newGoal = {title:$scope.title, total:$scope.total, balance:$scope.balance, percentage:x, add: 0, color: 'red'};
+		var newGoal = {title:$scope.title, total:$scope.total, balance:$scope.balance, percentage:p, add: 0, color: 'red'};
 		$scope.title = "";
 		$scope.total = "";
 		$scope.balance = "";
@@ -27,7 +26,8 @@ angular.module('Save', [])
 			per = (goal.balance / goal.total) * 100
 			perAdj = Math.round((per * 100) / 100)
 			
-			if(goal.percentage >= 100){
+
+			if(perAdj >= 100){
 				goal.color = "green"
 			}
 			goal.percentage = perAdj.toString() + '%'
