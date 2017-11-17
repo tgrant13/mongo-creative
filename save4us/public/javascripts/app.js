@@ -15,7 +15,8 @@ angular.module('Save', [])
 	};
 
 	$scope.addFunds = function(total) {
-		return $http.put('/totals/' + total._id + '/updateBalance')
+		console.log(total);
+		return $http.put('/totals/' + total._id + '/updateBalance', total)
 		.success(function(data){
 			console.log("addFunds worked");
 			console.log(data.balance);
@@ -25,8 +26,9 @@ angular.module('Save', [])
 	};
 
 	$scope.updateBalance = function(goal) {
-		console.log($scope.additionalFunds);
-		goal.add = $scope.additionalFunds;
+		console.log(goal.funds);
+		goal.add = goal.funds;
+		console.log(goal);
 		$scope.addFunds(goal);
 	}
 

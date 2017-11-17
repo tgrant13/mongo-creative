@@ -3,6 +3,7 @@ var router = express.Router();
 
 var mongoose = require('mongoose');
 var Total = mongoose.model('Total');
+var amount = 0;
 
 router.get('/totals', function(req, res, next) {
   Total.find(function(err, totals){
@@ -29,14 +30,17 @@ router.param('total', function(req, res, next, id) {
 	});
 });
 
+
 router.delete('/totals/:total', function(req, res) {
 	console.log("in Delete");
 	req.total.remove();
 	res.sendStatus(200);
 });
 
-router.put('/totals/:total/updateBalance', function(req, res, next) {
-	console.log("INSIDE PUT");
+router.put('/totals/:total/updateBalance',  function(req, res, next) {
+	req.total.add = req.body.add;
+
+
 	req.total.updateBalance(function(err, total){
 		if(err) { return next(err); }
 		res.json(total);

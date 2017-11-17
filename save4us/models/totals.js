@@ -8,10 +8,7 @@ var TotalSchema = new mongoose.Schema({
 });
 
 TotalSchema.methods.updateBalance = function(cb) {
-
 	this.balance += this.add;
-	console.log(this.add);
-	console.log(this.balance);
 	this.save(cb);
 }
 
