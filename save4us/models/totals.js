@@ -14,8 +14,12 @@ TotalSchema.methods.updateBalance = function(cb) {
 	{
 		this.color = "green";
 	}
+	
+	var b = this.balance;
+	var t = this.total;
+	var p = Math.round((((b/t) * 100) * 100) / 100);
+	this.percentage = p.toString() + '%';
 	this.save(cb);
-
 }
 
 mongoose.model('Total', TotalSchema);
