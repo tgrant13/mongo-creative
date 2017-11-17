@@ -36,6 +36,7 @@ router.delete('/totals/:total', function(req, res) {
 });
 
 router.put('/totals/:total/updateBalance', function(req, res, next) {
+	console.log("INSIDE PUT");
 	req.total.updateBalance(function(err, total){
 		if(err) { return next(err); }
 		res.json(total);

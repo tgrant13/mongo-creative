@@ -18,11 +18,14 @@ angular.module('Save', [])
 		return $http.put('/totals/' + total._id + '/updateBalance')
 		.success(function(data){
 			console.log("addFunds worked");
+			console.log(data.balance);
 			total.balance = data.balance;
 		});
+		$scope.getAll();
 	};
 
 	$scope.updateBalance = function(goal) {
+		console.log($scope.additionalFunds);
 		goal.add = $scope.additionalFunds;
 		$scope.addFunds(goal);
 	}
