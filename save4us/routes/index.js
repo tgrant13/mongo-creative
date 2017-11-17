@@ -35,4 +35,11 @@ router.delete('/totals/:total', function(req, res) {
 	res.sendStatus(200);
 });
 
+router.put('/totals/:total/updateBalance', function(req, res, next) {
+	req.total.updateBalance(function(err, total){
+		if(err) { return next(err); }
+		res.json(total);
+	})
+});
+
 module.exports = router;
