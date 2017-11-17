@@ -17,16 +17,16 @@
 	<div class="container text-center">
 		<div class="container text-center">
 			<div class="form-group row">
-				<div class="col-lg-3">
+				<div class="form-group col-lg-3">
 					<input class="form-control" type="text" ng-model="title" placeholder="Title">
 				</div>
-				<div class="col">
+				<div class="form-group col">
 					<input class="form-control" type="number" ng-model="total" placeholder="Price">
 				</div>
-				<div class="col">
+				<div class="form-group col">
 					<input class="form-control" type="number" ng-model="balance" placeholder="Already Saved">
 				</div>
-				<div class="col">
+				<div class="form-group col">
 					<button class="btn btn-primary" ng-click="addGoal()">Add</button>
 				</div>
 		</div>
@@ -40,7 +40,7 @@
 						<h2>{{goal.title}}</h2>
 					</div>
 					<div class="col-custom progress progress-custom">
-  						<div class="progress-bar" role="progressbar" saria-valuenow="{{goal.percentage}}" aria-valuemin="0" aria-valuemax="100" ng-style="{width : ( goal.percentage + '%' ) }">{{goal.percentage}}%</div>
+  						<div class="progress-bar" role="progressbar" saria-valuenow="{{goal.percentage}}" aria-valuemin="0" aria-valuemax="100" ng-style="{'width': goal.percentage, 'background-color': goal.color}">{{goal.percentage}}%</div>
 					</div>
 					<div class="col goalCol">
 						<h2>${{goal.balance}} / ${{goal.total}}</h2>
