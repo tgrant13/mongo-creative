@@ -35,3 +35,8 @@ a {
 .progress-custom{
 	height: auto !important;
 }
+
+.h2-custom{
+  line-height:100px; 
+  vertical-align:middle;
+}
