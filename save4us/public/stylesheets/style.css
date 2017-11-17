@@ -1,6 +1,6 @@
 body {
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 25px;
+  padding-right: 25px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -22,4 +22,16 @@ a {
 
 .goalColForm{
 	width: 100px !important;
+}
+.col-custom{
+	flex: 0 0 25%;
+    max-width: 25%;
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 0;
+    padding-left: 0;
+}
+.progress-custom{
+	height: auto !important;
 }
